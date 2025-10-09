@@ -1,19 +1,22 @@
 package com.timeright.tcc.model.entity;
 
-import jakarta.persistence.Column;
+import jakarta.persistence.*;
 
-import java.time.LocalDate;
+@Entity
 
 public class Funcionario {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;
         @Column(length = 5, nullable = false)
         private String nome;
         @Column(length = 50, nullable = false)
         private String observacoes;
-        @Column(length = 100, nullable = false)
-        private String statusFuncionario;
-        private String statusServico;
+        @Column(length = 100, nullable = true)
+        private String codStatus;
+        @Column(length = 20, nullable = false)
+
 
     public Long getId() {
         return id;
@@ -39,19 +42,12 @@ public class Funcionario {
         this.observacoes = observacoes;
     }
 
-    public String getStatusFuncionario() {
-        return statusFuncionario;
+    public String getcodStatus() {
+        return codStatus;
     }
 
-    public void setStatusFuncionario(String statusFuncionario) {
-        this.statusFuncionario = statusFuncionario;
+    public void setcodStatus(String codStatus) {
+        this.codStatus = codStatus;
     }
 
-    public String getStatusServico() {
-        return statusServico;
-    }
-
-    public void setStatusServico(String statusServico) {
-        this.statusServico = statusServico;
-    }
 }

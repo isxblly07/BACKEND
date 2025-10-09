@@ -1,33 +1,39 @@
 package com.timeright.tcc.controller;
 
-import com.timeright.tcc.model.entity.Servicos;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.timeright.tcc.model.entity.Servico;
+import com.timeright.tcc.services.ServicoService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
+@RestController
+@RequestMapping
 public class ServicoController {
 
-    @RestController
-    @RequestMapping("api/v1/usuario")
-    public class AgendamentoController {
+     @Autowired
+    private ServicoService servicoService;
 
-        List<Servicos> servicoId = new ArrayList<Servicos>();
+     @GetMapping
+    public ResponseEntity<List<Servico>> listarTodos() {
 
-        @GetMapping
-        public List<Servicos> findAll() {
-
-            Servicos s1 = new Servicos();
-            s1.setNome("Manicure: Alongamento");
-            s1.setDescricao("Alongamento de unhas");
-            s1.setDuracao(2.00);
-
-            servicoId.add(s1);
-
-            return servicoId;
+         return ResponseEntity.ok(servicoService.findAll());
 
         }
+
+        // @RequestBody : Corpo da Requisição ( Recebendo um objeto JSON )
+        // ResponseEntity: Toda resposta HTTP (status, cabeçalhos e corpo), aqui temos mais controle sobre o que é devolvido pro cliente
+        // 1. Status HTTP: (200 ok, 201 CREATED, 404 NOT FOUND etc...)
+        // 2. Headers: ( cabeçalhos extras, como location, Authorization etc...)
+        // 3. Body: ( o objeto que será convertido em JSON/XML para o cliente )
+
+     @PostMapping
+    public ResponseEntity<Servico> cadastrar(@RequestBody final Servico servico) {
+
+         Servico novo = servicoService.salvarServico(servico);
+         return ResponseEntity.status(HttpStatus.CREATED).body(novo);
+     }
     }
-}

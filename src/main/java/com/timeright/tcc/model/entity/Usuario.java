@@ -1,11 +1,16 @@
 package com.timeright.tcc.model.entity;
 
-import jakarta.persistence.Column;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
-public class Usuarios {
 
+@Entity
+@Table(name = "Usuario")
+public class Usuario {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(length = 100, nullable = false)
     private String nome;
@@ -13,13 +18,10 @@ public class Usuarios {
     private String email;
     @Column(length = 100, nullable = false)
     private String senha;
-    @Column(length = 8, nullable = false)
-    private String descricao;
-    @Column(length = 100, nullable = false)
-    private String nivelAcesso;
     @Column(length = 10, nullable = false)
     private LocalDate dataCadastro;
-    private boolean statusUsuario;
+    @Column(length = 30, nullable = false)
+    private String codStatus;
     @Column(length = 100, nullable = false)
 
     public Long getId() {
@@ -54,22 +56,6 @@ public class Usuarios {
         this.senha = senha;
     }
 
-    public String getNivelAcesso() {
-        return nivelAcesso;
-    }
-
-    public void setNivelAcesso(String nivelAcesso) {
-        this.nivelAcesso = nivelAcesso;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
     public LocalDate getDataCadastro() {
         return dataCadastro;
     }
@@ -78,11 +64,13 @@ public class Usuarios {
         this.dataCadastro = dataCadastro;
     }
 
-    public boolean isStatusUsuario() {
-        return statusUsuario;
+
+
+    public void setCodStatus(String codStatus) {
+        this.codStatus = codStatus;
     }
 
-    public void setStatusUsuario(boolean statusUsuario) {
-        this.statusUsuario = statusUsuario;
+    public String getCodStatus() {
+        return codStatus;
     }
 }

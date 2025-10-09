@@ -3,9 +3,8 @@ package com.timeright.tcc.model.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Serviço")
 
-public class Servicos {
+public class Servico {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // AUTO-INCREMENTO SEQUÊNCIAL 1 e 1
@@ -16,8 +15,8 @@ public class Servicos {
     private String descricao;
     @Column(length = 300, nullable = false)
     private double duracao;
-    @Column(length = 20, nullable = false)
-    private boolean statusServico;
+    @Column(length = 3, nullable = false)
+    private String codStatus;
     @Column(length = 20, nullable = false)
 
     public Long getId() {
@@ -52,13 +51,8 @@ public class Servicos {
         this.duracao = duracao;
     }
 
-    public boolean isStatusServico() {
-        return statusServico;
-    }
+    public String getCodStatus() { return codStatus; }
 
-    public void setStatusServico(boolean statusServico) {
-        this.statusServico = statusServico;
-    }
-
+    public void setCodStatus(String codStatus) { this.codStatus = codStatus; }
 
 }
