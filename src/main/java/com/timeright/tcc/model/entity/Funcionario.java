@@ -1,6 +1,7 @@
 package com.timeright.tcc.model.entity;
 
 import jakarta.persistence.*;
+import com.timeright.tcc.model.entity.Servico;
 
 @Entity
 
@@ -12,7 +13,7 @@ public class Funcionario {
         @Column(length = 5, nullable = false)
         private String nome;
         @Column(length = 50, nullable = false)
-        private String observacoes;
+        private String servico;
         @Column(length = 100, nullable = true)
         private String codStatus;
         @Column(length = 20, nullable = false)
@@ -34,12 +35,12 @@ public class Funcionario {
         this.nome = nome;
     }
 
-    public String getObservacoes() {
-        return observacoes;
+    public String getServico() {
+        return servico;
     }
 
-    public void setObservacoes(String observacoes) {
-        this.observacoes = observacoes;
+    public void setServico(String servico) {
+        this.servico = servico;
     }
 
     public String getcodStatus() {

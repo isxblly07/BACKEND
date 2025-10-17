@@ -21,7 +21,7 @@ public class Usuario {
     @Column(length = 10, nullable = false)
     private LocalDate dataCadastro;
     @Column(length = 30, nullable = false)
-    private String codStatus;
+    private boolean codStatus;
     @Column(length = 100, nullable = false)
 
     public Long getId() {
@@ -66,11 +66,11 @@ public class Usuario {
 
 
 
-    public void setCodStatus(String codStatus) {
+    public void setCodStatus(boolean codStatus) {
         this.codStatus = codStatus;
     }
 
-    public String getCodStatus() {
+    public boolean getCodStatus() {
         return codStatus;
     }
 }

@@ -13,7 +13,7 @@ public class Servico {
     private String nome;
     @Column(length = 100, nullable = false)
     private String descricao;
-    @Column(length = 300, nullable = false)
+    @Column(length = 300, nullable = true)
     private double duracao;
     @Column(length = 3, nullable = false)
     private String codStatus;
