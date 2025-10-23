@@ -17,7 +17,6 @@ public class Servico {
     private double duracao;
     @Column(length = 3, nullable = false)
     private String codStatus;
-    @Column(length = 20, nullable = false)
 
     public Long getId() {
         return id;

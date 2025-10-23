@@ -1,23 +1,22 @@
 package com.timeright.tcc.model.entity;
 
 import javax.persistence.*;
-import com.timeright.tcc.model.entity.Servico;
 
 @Entity
-
 public class Funcionario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Long id;
-        @Column(length = 5, nullable = false)
-        private String nome;
-        @Column(length = 50, nullable = false)
-        private String servico;
-        @Column(length = 100, nullable = true)
-        private String codStatus;
-        @Column(length = 20, nullable = false)
-
+    private Long id;
+    
+    @Column(length = 100, nullable = false)
+    private String nome;
+    
+    @Column(length = 50, nullable = false)
+    private String servico;
+    
+    @Column(length = 3, nullable = false)
+    private String codStatus;
 
     public Long getId() {
         return id;
@@ -43,12 +42,11 @@ public class Funcionario {
         this.servico = servico;
     }
 
-    public String getcodStatus() {
+    public String getCodStatus() {
         return codStatus;
     }
 
-    public void setcodStatus(String codStatus) {
+    public void setCodStatus(String codStatus) {
         this.codStatus = codStatus;
     }
-
 }

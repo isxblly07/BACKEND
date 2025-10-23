@@ -20,9 +20,8 @@ public class Usuario {
     private String senha;
     @Column(length = 10, nullable = false)
     private LocalDate dataCadastro;
-    @Column(length = 30, nullable = false)
+    @Column(nullable = false)
     private boolean codStatus;
-    @Column(length = 100, nullable = false)
 
     public Long getId() {
         return id;
