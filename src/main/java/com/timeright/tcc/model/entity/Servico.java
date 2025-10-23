@@ -1,6 +1,6 @@
 package com.timeright.tcc.model.entity;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 @Entity
 
